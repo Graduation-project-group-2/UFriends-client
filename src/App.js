@@ -1,5 +1,6 @@
 import './App.css';
 import Start from './routes/Start';
+import React from 'react';
 import {
     BrowserRouter,
     Routes,

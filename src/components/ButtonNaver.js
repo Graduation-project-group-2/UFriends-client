@@ -1,3 +1,4 @@
+import React from 'react';
 import naver from "../img/naverLogo.png";
 
 function ButtonNaver() {

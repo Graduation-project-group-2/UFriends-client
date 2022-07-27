@@ -1,3 +1,4 @@
+import React from 'react';
 import google from "../img/googleLogo.png";
 
 function ButtonGoogle() {
