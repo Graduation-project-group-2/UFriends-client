@@ -1,8 +1,8 @@
 import Start from './routes/Start';
-import SignUp1 from './routes/SignUp1';
-import SignUp2 from './routes/SignUp2';
-import SignUp3 from './routes/SignUp3';
-import SignUp4 from './routes/SignUp4';
+import SignUpEmail from './routes/SignUpEmail';
+import SignUpPassword from './routes/SignUpPassword';
+import SignUpPhoneBirth from './routes/SignUpPhoneBirth';
+import SignUpNickname from './routes/SignUpNickname';
 import SignUpEnd from './routes/SignUpEnd';
 import Login from './routes/Login';
 import Main from './routes/Main';
@@ -21,10 +21,10 @@ function App() {
             <Routes>
                 <Route path="/" element={<Start />} />
                 <Route path="/SignUpEnd" element={<SignUpEnd />} />
-                <Route path="/SignUp4" element={<SignUp4 />} />
-                <Route path="/SignUp3" element={<SignUp3 />} />
-                <Route path="/SignUp2" element={<SignUp2 />} />
-                <Route path="/SignUp1" element={<SignUp1 />} />
+                <Route path="/SignUpNickname" element={<SignUpNickname />} />
+                <Route path="/SignUpPhoneBirth" element={<SignUpPhoneBirth />} />
+                <Route path="/SignUpPassword" element={<SignUpPassword />} />
+                <Route path="/SignUpEmail" element={<SignUpEmail />} />
                 <Route path="/Login" element={<Login />} />
                 <Route path="/Main" element={<Main />} />
                 <Route path="/Chatbot" element={<Chatbot />} />

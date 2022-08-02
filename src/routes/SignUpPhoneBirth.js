@@ -2,7 +2,7 @@ import Header from "../components/Header";
 import ChatBotWord from "../components/ChatBotWord";
 import { Link } from "react-router-dom";
 
-function SignUp3() {
+function SignUpPhoneBirth() {
     return (
         <div>
             <Header />
@@ -29,4 +29,4 @@ function SignUp3() {
     );
 }
 
-export default SignUp3;
+export default SignUpPhoneBirth;

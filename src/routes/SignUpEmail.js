@@ -5,7 +5,7 @@ import ButtonGoogle from "../components/ButtonGoogle";
 import ButtonKakao from "../components/ButtonKakao";
 import ButtonNaver from "../components/ButtonNaver";
 
-function SignUp1() {
+function SignUpEmail() {
     return (
         <div>
             <Header />
@@ -33,4 +33,4 @@ function SignUp1() {
     );
 }
 
-export default SignUp1;
+export default SignUpEmail;

@@ -2,7 +2,7 @@ import Header from "../components/Header";
 import ChatBotWord from "../components/ChatBotWord";
 import { Link } from "react-router-dom";
 
-function SignUp2() {
+function SignUpPassword() {
     return (
         <div>
             <Header />
@@ -26,4 +26,4 @@ function SignUp2() {
     );
 }
 
-export default SignUp2;
+export default SignUpPassword;

@@ -1,5 +1,4 @@
 import chatbot from "../img/chatbot.png";
-import Header from "../components/Header";
 import { Link } from "react-router-dom";
 import PBalloon from "../components/PBalloon";
 
