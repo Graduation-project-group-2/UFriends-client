@@ -3,7 +3,7 @@ import google from "../img/googleLogo.png";
 
 function ButtonGoogle() {
     return (
-        <button><img src={google}></img></button>
+        <button><img src={google} alt="GoogleImg"></img></button>
     )
 }
 

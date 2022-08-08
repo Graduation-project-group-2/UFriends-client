@@ -3,7 +3,7 @@ import naver from "../img/naverLogo.png";
 
 function ButtonNaver() {
     return (
-        <button><img src={naver}></img></button>
+        <button><img src={naver} alt="NaverImg"></img></button>
     )
 }
 
