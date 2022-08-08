@@ -8,7 +8,7 @@ function Main() {
     return (
         <div className="EntireDiv">
             <Header />
-            <img src={chatbot} alt="ChatbotIMG" />
+            <img id="MainImg" src={chatbot} alt="ChatbotIMG" />
             <div className="balloonsDiv">
                 <div>
                     <PBalloon className="PBalloon" text={"@@아, 오늘 하루는 어땠어?"} />

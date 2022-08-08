@@ -6,7 +6,7 @@
     overflow-x: hidden;
 }
 
-img {
+#MainImg {
     position: relative;
     left: 40%;
     top: 15%;
@@ -57,7 +57,7 @@ img {
         height: 100%;
     }
     
-    img {
+    #MainImg {
         position: relative;
         left: 34%;
         top: 20%;
