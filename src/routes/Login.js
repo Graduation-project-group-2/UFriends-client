@@ -2,7 +2,7 @@ import chatbot from "../img/chatbot.png";
 import Header from "../components/Header";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import Axios from "axios";
+import axios from "axios";
 
 function Login(props) {
 
@@ -20,14 +20,29 @@ function Login(props) {
     const onSubmitHandler = (event) => {
         event.preventDefault(); // 페이지 리프레시를 막아줌
 
-    let body = {
-        email: email,
-        password: password
+        let body = {
+            email: email,
+            password: password
+        }
+
+        callApi(body)
+            .then(console.log("success"))
+            .catch(err => console.error(err));
+
     };
 
-    Axios.post("/api/user/login")
-}
+    async function callApi(body){
+        const response = await axios({
+            url: "/api/user/login",
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+            },
+            body: body,
+            method: 'post'
+        });
 
+        return response.data;
+    }
 
 
     return (
