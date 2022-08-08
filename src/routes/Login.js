@@ -3,6 +3,8 @@ import Header from "../components/Header";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import axios from "axios";
+import { API_HOST } from "../config/env";
+import { API_LOGIN } from "../config/env";
 
 function Login(props) {
 
@@ -25,19 +27,21 @@ function Login(props) {
             password: password
         }
 
-        callApi(body)
-            .then(console.log("success"))
+        loginApi(body)
+            .then()
             .catch(err => console.error(err));
 
     };
 
-    async function callApi(body){
-        const response = await axios({
-            url: "/api/user/login",
+    async function loginApi(body){
+        const response = await axios(API_LOGIN, {
             headers: {
                 'Access-Control-Allow-Origin': '*',
             },
-            body: body,
+            data: {
+                email: body.email,
+                password: body.password
+            },
             method: 'post'
         });
 
