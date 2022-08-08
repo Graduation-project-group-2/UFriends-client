@@ -5,6 +5,7 @@ import ButtonGoogle from "../components/ButtonGoogle";
 import ButtonKakao from "../components/ButtonKakao";
 import ButtonNaver from "../components/ButtonNaver";
 import { Link } from "react-router-dom";
+import "../styles/Main.css";
 
 function Start() {
     return (
