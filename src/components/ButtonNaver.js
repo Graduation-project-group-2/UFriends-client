@@ -1,9 +1,10 @@
 import React from 'react';
 import naver from "../img/naverLogo.png";
+import "../styles/ImgButton.css"
 
 function ButtonNaver() {
     return (
-        <button><img src={naver} alt="NaverImg"></img></button>
+        <button className="ImgButton"><img src={naver} alt="NaverImg"></img></button>
     )
 }
 

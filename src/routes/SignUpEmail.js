@@ -25,7 +25,7 @@ function SignUpEmail() {
                     <button>이메일 중복 확인</button>
                 </div>
                 <div>
-                    <Link to={"/SignUp2"}><button type="submit" >계속하기</button></Link>
+                    <Link to={"/SignUpPassword"}><button type="submit" >계속하기</button></Link>
                 </div>
             </form>
             

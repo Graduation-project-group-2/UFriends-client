@@ -1,0 +1,21 @@
+#TitleImg {
+    position: relative;
+    display: block;
+    margin: 0px auto;
+}
+
+#Title {
+    text-align: center;
+}
+
+#SubTitle {
+    text-align: center;
+}
+
+.buttonDiv {
+    text-align: center;
+}
+
+#Social {
+    text-align: center;
+}

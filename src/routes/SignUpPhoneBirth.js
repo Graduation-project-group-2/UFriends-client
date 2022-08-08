@@ -23,7 +23,7 @@ function SignUpPhoneBirth() {
                 <input id="Birth" placeholder="YYYY.MM.DD 양/음" type="date"></input>
             </div>
             <div>
-                <Link to={"/SignUp4"}><button type="submit">계속하기</button></Link>
+                <Link to={"/SignUpNickname"}><button type="submit">계속하기</button></Link>
             </div>
         </div>
     );

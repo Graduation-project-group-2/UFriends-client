@@ -1,9 +1,10 @@
 import React from 'react';
 import google from "../img/googleLogo.png";
+import "../styles/ImgButton.css"
 
 function ButtonGoogle() {
     return (
-        <button><img src={google} alt="GoogleImg"></img></button>
+        <button className="ImgButton"><img src={google} alt="GoogleImg"></img></button>
     )
 }
 

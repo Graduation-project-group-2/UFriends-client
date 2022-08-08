@@ -20,7 +20,7 @@ function SignUpPassword() {
                 <input id="Pwd" placeholder="한번 더 입력해주세요" type="password" ></input>
             </div>
             <div>
-                <Link to={"/SignUp3"}><button type="submit" >계속하기</button></Link>
+                <Link to={"/SignUpPhoneBirth"}><button type="submit" >계속하기</button></Link>
             </div>
         </div>
     );
