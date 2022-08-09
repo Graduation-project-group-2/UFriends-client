@@ -2,14 +2,10 @@ import chatbot from "../img/chatbot.png";
 import Header from "../components/Header";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-<<<<<<< Updated upstream
-import Axios from "axios";
-=======
 import axios from "axios";
 import { API_HOST } from "../config/env";
 import { API_LOGIN } from "../config/env";
 import "../styles/Login.css";
->>>>>>> Stashed changes
 
 function Login(props) {
 
@@ -27,15 +23,31 @@ function Login(props) {
     const onSubmitHandler = (event) => {
         event.preventDefault(); // 페이지 리프레시를 막아줌
 
-    let body = {
-        email: email,
-        password: password
+        let body = {
+            email: email,
+            password: password
+        }
+
+        loginApi(body)
+            .then()
+            .catch(err => console.error(err));
+
     };
 
-    Axios.post("/api/user/login")
-}
+    async function loginApi(body){
+        const response = await axios(API_LOGIN, {
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+            },
+            data: {
+                email: body.email,
+                password: body.password
+            },
+            method: 'post'
+        });
 
-
+        return response.data;
+    }
 
     return (
         <div className="entireDiv">
