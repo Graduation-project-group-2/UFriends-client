@@ -9,22 +9,22 @@ import "../styles/Start.css";
 
 function Start() {
     return (
-        <div>
+        <div className="entireDiv">
             <Header />
-            <img id="TitleImg" src={chatbot} alt="IMG" />
-            <h1 id="Title">U-Friend</h1>
-            <h3 id="SubTitle">유프렌즈에 오신 걸 환영합니다</h3>
-            <div className="buttonDiv">
-                <Link to={"/SignUpEmail"}><Button text={"회원가입 →"} /></Link>
-                <Link to={"/Login"}><Button text={"로그인 →"} /></Link>
-            </div>
-            <div className="buttonDiv">
-                <ButtonGoogle />
-                <ButtonKakao />
-                <ButtonNaver />
-            </div>
-            <div>
-                <p id="Social">간편 소셜 로그인 방법</p>
+            <div className="innerDiv">
+                <img id="TitleImg" src={chatbot} alt="IMG" />
+                <h1 id="Title">U-Friend</h1>
+                <h2 id="SubTitle">유프렌즈에 오신 걸 환영합니다</h2>
+                <div className="buttonDiv">
+                    <Link to={"/SignUpEmail"}><Button text={"회원가입 →"} /></Link>
+                    <Link to={"/Login"}><Button text={"로그인 →"} /></Link>
+                </div>
+                <div className="socialButtonDiv">
+                    <ButtonGoogle />
+                    <ButtonKakao />
+                    <ButtonNaver />
+                    <p id="Social">간편 소셜 로그인 방법</p>
+                </div>
             </div>
         </div>
     );
