@@ -1,3 +1,4 @@
+import React from 'react';
 import kakao from "../img/kakaoLogo.png";
 import "../styles/ImgButton.css"
 

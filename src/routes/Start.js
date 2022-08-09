@@ -4,6 +4,7 @@ import Button from "../components/Button";
 import ButtonGoogle from "../components/ButtonGoogle";
 import ButtonKakao from "../components/ButtonKakao";
 import ButtonNaver from "../components/ButtonNaver";
+import React from 'react';
 import { Link } from "react-router-dom";
 import "../styles/Start.css";
 
