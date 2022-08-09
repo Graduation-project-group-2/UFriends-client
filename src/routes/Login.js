@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import axios from "axios";
 import { API_HOST } from "../config/env";
 import { API_LOGIN } from "../config/env";
+import "../styles/Login.css";
 
 function Login(props) {
 
@@ -26,13 +27,13 @@ function Login(props) {
             email: email,
             password: password
         }
-
+        
         loginApi(body)
             .then()
             .catch(err => console.error(err));
 
     };
-
+    
     async function loginApi(body){
         const response = await axios(API_LOGIN, {
             headers: {
@@ -48,26 +49,26 @@ function Login(props) {
         return response.data;
     }
 
-
     return (
-        <div>
+        <div className="entireDiv">
             <Header />
-            <div>
-                <img src={chatbot} alt="ChatbotIMG" />
+            <div className="innerDiv">
+                <img id="TitleImg" src={chatbot} alt="ChatbotIMG" />
+                <p id="ment">"멘트 정하기"</p>
+                <div className="formDiv">
+                    <form onSubmit={onSubmitHandler}>
+                        <div>
+                            <label htmlFor="ID">아이디 </label>
+                            <input className="idField" id="ID" placeholder="아이디" type="email" value={email} onChange={onEmailHandler} />
+                        </div>
+                        <div>
+                            <label className="pwdLabel" htmlFor="PWD">비밀번호 </label>
+                            <input className="pwdField" id="PWD" placeholder="비밀번호" type="password" value={password} onChange={onPasswordHandler} />
+                        </div>
+                        <button className="submitButton" type="submit">로그인하기</button>
+                    </form>
+                </div>
             </div>
-            <div>
-                <h4>멘트 정하기</h4>
-            </div>
-            <div>
-                <form onSubmit={onSubmitHandler}>
-                    <label htmlFor="ID">아이디</label>
-                    <input id="ID" placeholder="아이디" type="email" value={email} onChange={onEmailHandler} />
-                    <label htmlFor="PWD">비밀번호</label>
-                    <input id="PWD" placeholder="비밀번호" type="password" value={password} onChange={onPasswordHandler} />
-                    <button type="submit">로그인하기</button>
-                </form>
-            </div>
-            
         </div>
     );
 }
