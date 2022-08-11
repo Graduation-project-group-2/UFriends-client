@@ -1,18 +1,18 @@
-import chatbot from "../img/chatbot.png";
 import Header from "../components/Header";
+import Button from "../components/Button";
 import { Link } from "react-router-dom";
-import PBalloon from "../components/PBalloon";
+import ChatBotWord from "../components/ChatBotWord";
+import "../styles/SignUpEnd.css"
 
 function SignUpEnd() {
     return (
-        <div>
+        <div className="entireDiv">
             <Header />
-            <img src={chatbot} alt="ChatbotIMG" />
-            <div>
-                <PBalloon text={"친구가 되어줘서 고마워요! 이제 시작해볼까요?"} />
-            </div>
-            <div>
-                <Link to={"/Login"}><button>로그인</button></Link>
+            <div className="innerDiv">
+                <ChatBotWord text={"친구가 되어줘서 고마워요! 이제 시작해볼까요?"} />
+                <div className="buttonDiv">
+                    <Link to={"/Login"}><Button text={"로그인 →"} /></Link>
+                </div>
             </div>
         </div>
     );

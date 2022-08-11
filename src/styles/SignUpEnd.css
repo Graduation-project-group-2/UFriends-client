@@ -1,0 +1,16 @@
+.entireDiv {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.innerDiv {
+    position: relative;
+    top: 15%;
+}
+
+.buttonDiv {
+    text-align: center;
+}
