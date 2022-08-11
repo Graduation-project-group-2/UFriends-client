@@ -11,6 +11,7 @@
     background: #FFF;
     border: solid 3px #555;
     box-sizing: border-box;
+    text-align: center;
 }
 
 .balloon:before {
@@ -36,6 +37,7 @@
   }
   
   .balloon p {
+    text-align: center;
     margin: 0;
     padding: 0;
   }

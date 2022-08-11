@@ -1,11 +1,14 @@
 import chatbot from "../img/chatbot.png";
-import PBalloon from "../components/PBalloon";
+import PBox from "../components/PBox";
+import "../styles/ChatBotWord.css"
 
-function ChatBotWord() {
+function ChatBotWord({text}) {
     return (
         <div>
-            <img src={chatbot} alt="ChatbotIMG" />
-            <PBalloon text={"당신의 친구가 되기 위해 기다리고 있어요 :)"} />
+            <img id="TitleImg" src={chatbot} alt="ChatbotIMG" />
+            <div>
+                <PBox text={text} />
+            </div>
         </div>
     );
 }

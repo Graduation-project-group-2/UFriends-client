@@ -11,19 +11,8 @@
     top: 15%;
 }
 
-#TitleImg {
-    position: relative;
-    display: block;
-    margin: 0px auto;
-}
 
-#ment {
-    text-align: center;
-    position: relative;
-    top: 10px;
-}
-
-.loginFormDiv {
+.emailFormDiv {
     width: 360px;
     background-color: #EEEFF1;
     margin-right: auto;
@@ -32,11 +21,9 @@
     padding: 25px;
     text-align: center;
     border: none;
-    position: relative;
-    top: 20px;
 }
 
-.idField {
+.emailField {
     font-size: 14px;
     padding: 10px;
     border: none;
@@ -44,22 +31,12 @@
     margin-bottom: 10px;
 }
 
-.pwdLabel {
+.emailDiv {
     position: relative;
-    left: -8px;
+    top: 10px;
 }
 
-.pwdField {
-    position: relative;
-    left: -8px;
-    font-size: 14px;
-    padding: 10px;
-    border: none;
-    width: 260px;
-    margin-bottom: 10px;
-}
-
-.submitButton{
+#nextToPasswordButton {
     font-size: 14px;
     border: none;
     padding: 10px;

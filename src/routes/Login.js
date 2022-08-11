@@ -55,7 +55,7 @@ function Login(props) {
             <div className="innerDiv">
                 <img id="TitleImg" src={chatbot} alt="ChatbotIMG" />
                 <p id="ment">"멘트 정하기"</p>
-                <div className="formDiv">
+                <div className="loginFormDiv">
                     <form onSubmit={onSubmitHandler}>
                         <div>
                             <label htmlFor="ID">아이디 </label>
