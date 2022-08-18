@@ -1,0 +1,33 @@
+.miniDiv {
+    position: absolute;
+    left: 40%;
+    top: 20%;
+}
+
+.img1 {
+    display: inline-block;
+}
+
+.img2 {
+    display: inline-block;
+}
+
+.img3 {
+    display: inline-block;
+}
+
+.img4 {
+    display: inline-block;
+}
+
+.img5 {
+    display: inline-block;
+}
+
+.img6 {
+    display: inline-block;
+}
+
+.gameImg {
+    margin: 50px;
+}
