@@ -6,7 +6,7 @@ import "../styles/Main.css";
 
 function Main() {
     return (
-        <div className="EntireDiv">
+        <div className="entireDiv">
             <Header />
             <img id="MainImg" src={chatbot} alt="ChatbotIMG" />
             <div className="balloonsDiv">
