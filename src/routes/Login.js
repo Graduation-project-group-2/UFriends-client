@@ -6,6 +6,7 @@ import axios from "axios";
 import { API_HOST } from "../config/env";
 import { API_LOGIN } from "../config/env";
 import "../styles/Login.css";
+import { useNavigate } from "react-router-dom";
 
 function Login(props) {
 
@@ -49,6 +50,30 @@ function Login(props) {
         return response.data;
     }
 
+    let navigate = useNavigate();
+
+    const goToMain = () => {
+        navigate("/Main");
+    };
+
+    const realId = "tester@email.com";
+    const realPwd = "qwerty1234";
+
+    const localClick = (e) => {
+        if (realId === email) {
+            if (realPwd === password) {
+                e.stopPropagation();
+                goToMain();
+            }
+            else {
+                alert("아이디 혹은 비밀번호가 일치하지 않습니다.");
+            }
+        }
+        else {
+            alert("아이디 혹은 비밀번호가 일치하지 않습니다.");
+        }
+    }
+
     return (
         <div className="entireDiv">
             <Header />
@@ -65,7 +90,7 @@ function Login(props) {
                             <label className="pwdLabel" htmlFor="PWD">비밀번호 </label>
                             <input className="pwdField" id="PWD" placeholder="비밀번호" type="password" value={password} onChange={onPasswordHandler} />
                         </div>
-                        <button className="submitButton" type="submit">로그인하기</button>
+                        <button className="submitButton" type="submit" onClick={localClick} >로그인하기</button>
                     </form>
                 </div>
             </div>
