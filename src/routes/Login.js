@@ -56,7 +56,7 @@ function Login(props) {
         navigate("/Main");
     };
 
-    const realId = "tester@email.com";
+    const realId = "tester11@email.com";
     const realPwd = "qwerty1234";
 
     const localClick = (e) => {
