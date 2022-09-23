@@ -33,6 +33,7 @@ function Login(props) {
             .then()
             .catch(err => console.error(err));
 
+        alert("로그인이 성공했습니다")
     };
     
     async function loginApi(body){
@@ -50,29 +51,29 @@ function Login(props) {
         return response.data;
     }
 
-    let navigate = useNavigate();
+    // let navigate = useNavigate();
 
-    const goToMain = () => {
-        navigate("/Main");
-    };
+    // const goToMain = () => {
+    //     navigate("/Main");
+    // };
 
-    const realId = "tester11@email.com";
-    const realPwd = "qwerty1234";
+    // const realId = "tester11@email.com";
+    // const realPwd = "qwerty1234";
 
-    const localClick = (e) => {
-        if (realId === email) {
-            if (realPwd === password) {
-                e.stopPropagation();
-                goToMain();
-            }
-            else {
-                alert("아이디 혹은 비밀번호가 일치하지 않습니다.");
-            }
-        }
-        else {
-            alert("아이디 혹은 비밀번호가 일치하지 않습니다.");
-        }
-    }
+    // const localClick = (e) => {
+    //     if (realId === email) {
+    //         if (realPwd === password) {
+    //             e.stopPropagation();
+    //             goToMain();
+    //         }
+    //         else {
+    //             alert("아이디 혹은 비밀번호가 일치하지 않습니다.");
+    //         }
+    //     }
+    //     else {
+    //         alert("아이디 혹은 비밀번호가 일치하지 않습니다.");
+    //     }
+    // }
 
     return (
         <div className="entireDiv">
@@ -90,7 +91,7 @@ function Login(props) {
                             <label className="pwdLabel" htmlFor="PWD">비밀번호 </label>
                             <input className="pwdField" id="PWD" placeholder="비밀번호" type="password" value={password} onChange={onPasswordHandler} />
                         </div>
-                        <button className="submitButton" type="submit" onClick={localClick} >로그인하기</button>
+                        <button className="submitButton" type="submit" onClick={onSubmitHandler} >로그인하기</button>
                     </form>
                 </div>
             </div>
