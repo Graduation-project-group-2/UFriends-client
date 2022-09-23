@@ -11,10 +11,10 @@ function Main() {
             <img id="MainImg" src={chatbot} alt="ChatbotIMG" />
             <div className="balloonsDiv">
                 <div>
-                    <PBalloon className="PBalloon" text={"@@아, 오늘 하루는 어땠어?"} />
+                    <PBalloon className="PBalloon" text={"게스트로 입장하여 정보가 저장되지 않습니다."} />
                 </div>
                 <div>
-                    <PBalloon className="PBalloon" text={"너의 이야기가 궁금해!"} />
+                    <PBalloon className="PBalloon" text={"맞춤형 챗봇을 이용하기 위해서는 로그인을 해주세요."} />
                 </div>
             </div>
             <div className="buttonsDiv">
@@ -25,7 +25,7 @@ function Main() {
                     <Link to={"/MiniGame"}><button className="button">미니게임</button></Link>
                 </div>
                 <div className="buttonDiv">
-                    <Link to={"/MyPage"}><button className="button">마이페이지</button></Link>
+                    <Link to={"/"}><button className="button">시작화면</button></Link>
                 </div>
             </div>
         </div>

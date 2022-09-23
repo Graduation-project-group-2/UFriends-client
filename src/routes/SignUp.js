@@ -25,7 +25,9 @@ function SignUp() {
     const [isPasswordEnter, setPasswordEnter] = useState(false);
 
     const [phoneNumber, setPhoneNumber] = useState("");
+    const [isPhoneNumber, setIsPhoneNumber] = useState(false);
     const [birth, setBirth] = useState("");
+    const [isBirth, setIsBirth] = useState(false);
     const [isPhoneAndBirthEnter, setPhoneAndBirthEnter] = useState(false);
     const [nickname, setNickname] = useState(false);
     const [nicknameMessage, setNicknameMessage] = useState("");
@@ -122,15 +124,19 @@ function SignUp() {
     const onPhoneAndBirthSubmitHandler = (event) => {
         event.preventDefault();
 
+        body.phoneNumber = phoneNumber;
+        body.birth = birth;
         setPhoneAndBirthEnter(true);
     }
 
     const onChangePhoneNumber = (event) => {
         setPhoneNumber(event.target.value);
+        setIsPhoneNumber(true);
     }
 
     const onChangeBirth = (event) => {
         setBirth(event.target.value);
+        setIsBirth(true);
     }
 
     async function nicknameValidApi(nickname) {
@@ -258,14 +264,14 @@ function SignUp() {
                                                             <label htmlFor="Pwd2">한번 더 입력해볼게요!</label>
                                                         </div>
                                                         <div>
-                                                            <input className="rePasswordField" id="Pwd2" placeholder="한번 더 입력해주세요" type="password" onChange={onChangePasswordConfirm} ></input>
+                                                            <input className="rePasswordField" id="Pwd2" placeholder="한번 더 입력해주세요" type="password" onChange={onChangePasswordConfirm} onClick={onChangePasswordConfirm} ></input>
                                                         </div>
                                                         <div>
                                                             {passwordConfirm.length > 0 && (<span className="passwordConfirmCheckSpan">{passwordConfirmMessage}</span>)}
                                                         </div>
                                                     </div>
                                                     <div>
-                                                        <button id="nextToPhoneBirthButton" type="submit" disabled={!isPassword && !isPasswordConfirm}>계속하기</button>
+                                                        <button id="nextToPhoneBirthButton" type="submit" disabled={!isPassword || !isPasswordConfirm}>계속하기</button>
                                                     </div>
                                                 </form>
                                             </div>                
@@ -278,7 +284,7 @@ function SignUp() {
                                             return (
                                                 <>
                                                     <div className="phoneBirthFormDiv">
-                                                        <p id="phoneBirthP">나머지 정보도 알려주세요! (생략 가능)</p>
+                                                        <p id="phoneBirthP">나머지 정보도 알려주세요!</p>
                                                         <form onSubmit={onPhoneAndBirthSubmitHandler}>
                                                             <div>
                                                                 <label htmlFor="PhoneNumber">전화번호</label>
@@ -295,7 +301,7 @@ function SignUp() {
                                                                 </div>
                                                             </div>
                                                             <div>
-                                                                <button id="nextToNicknameButton" type="submit">계속하기</button>
+                                                                <button id="nextToNicknameButton" type="submit" disabled={!isPhoneNumber || !isBirth}>계속하기</button>
                                                             </div>
                                                         </form>
                                                     </div>
