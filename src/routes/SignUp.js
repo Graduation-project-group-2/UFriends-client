@@ -7,7 +7,7 @@ import ButtonNaver from "../components/ButtonNaver";
 import "../styles/SignUp.css"
 import { useState } from "react";
 import axios from "axios";
-import { API_EMAILVALID, API_NICKNAME, API_JOIN } from "../config/env";
+import { API_EMAIL_VALID, API_NICKNAME_VALID, API_PHONE_NUM_VALID, API_JOIN } from "../config/env";
 
 function SignUp() {
 
@@ -36,6 +36,7 @@ function SignUp() {
     let body = {
         email,
         password,
+        nickname,
         phoneNumber,
         birth
     }
@@ -57,9 +58,8 @@ function SignUp() {
 
     const onEmailSubmitHandler = (event) => {
         event.preventDefault();
-
         emailValidApi(email)
-            .then(alert("이메일 중복 확인이 되었습니다"))
+            .then(res => res.code == 200 ? alert("이메일 중복확인이 완료되었습니다.") : alert("중복된 이메일입니다."))
             .catch(err => console.error(err));
     };
 
@@ -73,16 +73,14 @@ function SignUp() {
     }
 
     async function emailValidApi(email) {
-        const response = await axios(API_EMAILVALID, {
-            headers: {
-                'Access-Control-Allow-Origin': '*',
-            },
-            data: {
-                email: email
-            },
-            method: "get"
-        });
-
+        // const response = await axios(API_EMAILVALID, {
+        //     headers: {
+        //         'Access-Control-Allow-Origin': '*',
+        //     },
+        //     email: email,
+        //     method: "get"
+        // });
+        const response = await axios.get(API_EMAIL_VALID, {params: {email: email}})
         return response.data;
     }
 
@@ -140,16 +138,28 @@ function SignUp() {
     }
 
     async function nicknameValidApi(nickname) {
-        const response = await axios(API_NICKNAME, {
-            headers: {
-                'Access-Control-Allow-Origin': '*',
-            },
-            data: {
-                nickname: nickname
-            },
-            method: "get"
-        });
+        // const response = await axios(API_NICKNAME, {
+        //     headers: {
+        //         'Access-Control-Allow-Origin': '*',
+        //     },
+        //     data: {
+        //         nickname: nickname
+        //     },
+        //     method: "get"
+        // });
+        const response = await axios.get(API_NICKNAME_VALID, {params: {nickname: nickname}})
+        return response.data;
+    }
 
+    const onPhoneNumSubmitHandler = (event) => {
+        event.preventDefault();
+        phoneNumValidApi(phoneNumber)
+            .then(res => res.code == 200 ? alert("전화번호 확인이 완료되었습니다.") : alert("이미 가입된 전화번호입니다."))
+            .catch(err => console.error(err));
+    };
+
+    async function phoneNumValidApi(phoneNumber){
+        const response = await axios.get(API_PHONE_NUM_VALID, {params: {phoneNum: phoneNumber}})
         return response.data;
     }
 
@@ -172,14 +182,13 @@ function SignUp() {
         event.preventDefault();
 
         nicknameValidApi(nickname)
-            .then()
+            .then(res => res.code == 200 ? alert("사용 가능한 닉네임 입니다.") : alert("중복된 닉네임입니다."))
             .catch(err => console.error(err));
-
-        alert("닉네임 중복이 확인되었습니다.");
     }
 
     async function joinApi(body) {
         const response = await axios(API_JOIN, {
+            method: "post",
             headers: {
                 'Access-Control-Allow-Origin': '*',
             },
@@ -190,9 +199,8 @@ function SignUp() {
                 phoneNum: body.phoneNumber,
                 birthday: body.birth
             },
-            method: "post"
         });
-
+        console.log(body.email);
         return response.data;
     }
 
@@ -200,10 +208,9 @@ function SignUp() {
         event.preventDefault();
 
         joinApi(body)
-            .then()
+            .then(res => res.code == 200 ? alert("가입에 성공하였습니다.") : alert("가입에 실패하였습니다. 다시 시도해 주세요."))
             .catch(err => console.error(err));
 
-        alert("가입에 성공하였습니다!");
     }
 
     return (
@@ -291,6 +298,9 @@ function SignUp() {
                                                             </div>
                                                             <div>
                                                                 <input className="phoneField" id="PhoneNumber" placeholder="010-0000-0000" onChange={onChangePhoneNumber}></input>
+                                                                <div className="phoneNumBtn">
+                                                                    <button onClick={onPhoneNumSubmitHandler} disabled={!isPhoneNumber}>전화번호 중복 확인</button>
+                                                                </div>
                                                             </div>
                                                             <div className="birthDiv">
                                                                 <div>
