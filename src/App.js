@@ -11,6 +11,10 @@ import GuestMain from './routes/GuestMain';
 import Chatbot from './routes/Chatbot';
 import MyPage from './routes/MyPage';
 import MiniGame from './routes/MiniGame';
+import Tetris from './routes/Tetris/Tetris';
+import G_2048 from './routes/2048/G_2048';
+import G_1010 from './routes/1010/G_1010';
+import MineSweeper from './routes/MineSweeper/MineSweeper';
 import {
     BrowserRouter,
     Routes,
@@ -34,6 +38,10 @@ function App() {
                 <Route path="/Chatbot" element={<Chatbot />} />
                 <Route path="/MyPage" element={<MyPage />} />
                 <Route path="/MiniGame" element={<MiniGame />} />
+                <Route path="/Tetris" element={<Tetris />} />
+                <Route path="/G_2048" element={<G_2048/>} />
+                <Route path="/G_1010" element={<G_1010/>} />
+                <Route path="/MineSweeper" element={<MineSweeper/>} />
             </Routes>
         </BrowserRouter>
     );
