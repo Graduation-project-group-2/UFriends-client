@@ -17,7 +17,7 @@ function Start() {
                 <h1 id="Title">U-Friend</h1>
                 <h2 id="SubTitle">유프렌즈에 오신 걸 환영합니다</h2>
                 <div className="buttonDiv">
-                    <Link to={"/SignUp"}><Button text={"회원가입 →"} /></Link>
+                    <Link to={"/Join"}><Button text={"회원가입 →"} /></Link>
                     <Link to={"/Login"}><Button text={"로그인 →"} /></Link>
                 </div>
                 <div className="guestDiv">
