@@ -1,5 +1,5 @@
 import Start from './routes/Start';
-import SignUp from './routes/SignUp';
+import Join from './routes/Join';
 import Login from './routes/Login';
 import Main from './routes/Main';
 import GuestMain from './routes/GuestMain';
@@ -21,7 +21,7 @@ function App() {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Start />} />
-                <Route path="/SignUp" element={<SignUp />} />
+                <Route path="/Join" element={<Join />} />
                 <Route path="/Login" element={<Login />} />
                 <Route path="/Main" element={<Main />} />
                 <Route path="/GuestMain" element={<GuestMain />} />

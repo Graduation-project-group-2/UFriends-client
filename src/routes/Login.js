@@ -3,9 +3,8 @@ import Header from "../components/Header";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import axios from "axios";
-import { API_HOST } from "../config/env";
-import { API_LOGIN } from "../config/env";
 import "../styles/Login.css";
+import { loginAPI, emailValidAPI, changePasswordAPI } from "../api/userAPI";
 import { useNavigate } from "react-router-dom";
 
 function Login(props) {
@@ -20,6 +19,8 @@ function Login(props) {
     const onPasswordHandler = (event) => {
         setPassword(event.currentTarget.value);
     }
+
+    const navigate = useNavigate();
     
     const onSubmitHandler = (event) => {
         event.preventDefault(); // 페이지 리프레시를 막아줌
@@ -28,52 +29,22 @@ function Login(props) {
             email: email,
             password: password
         }
+
         
         loginApi(body)
-            .then()
-            .catch(err => console.error(err));
+            .then(navigate("/Main"))
+            .catch(err => {
+                console.error(err);
+                alert("로그인에 실패하였습니다. 다시 시도해 주세요.");
+            });
 
-        alert("로그인이 성공했습니다")
     };
+
     
     async function loginApi(body){
-        const response = await axios(API_LOGIN, {
-            headers: {
-                'Access-Control-Allow-Origin': '*',
-            },
-            data: {
-                email: body.email,
-                password: body.password
-            },
-            method: 'post'
-        });
-
+        const response = loginAPI(body);
         return response.data;
     }
-
-    // let navigate = useNavigate();
-
-    // const goToMain = () => {
-    //     navigate("/Main");
-    // };
-
-    // const realId = "tester11@email.com";
-    // const realPwd = "qwerty1234";
-
-    // const localClick = (e) => {
-    //     if (realId === email) {
-    //         if (realPwd === password) {
-    //             e.stopPropagation();
-    //             goToMain();
-    //         }
-    //         else {
-    //             alert("아이디 혹은 비밀번호가 일치하지 않습니다.");
-    //         }
-    //     }
-    //     else {
-    //         alert("아이디 혹은 비밀번호가 일치하지 않습니다.");
-    //     }
-    // }
 
     return (
         <div className="entireDiv">

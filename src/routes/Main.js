@@ -3,6 +3,7 @@ import chatbot from "../img/chatbot.png";
 import { Link } from "react-router-dom";
 import PBalloon from "../components/PBalloon";
 import "../styles/Main.css";
+import {logout} from "../api/userAPI";
 
 function Main() {
     return (
@@ -26,6 +27,9 @@ function Main() {
                 </div>
                 <div className="buttonDiv">
                     <Link to={"/MyPage"}><button className="button">마이페이지</button></Link>
+                </div>
+                <div className="buttonDiv">
+                    <button onClick={logout}>로그아웃</button>
                 </div>
             </div>
         </div>
