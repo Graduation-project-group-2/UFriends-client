@@ -1,7 +1,7 @@
 // release
-// export const API_HOST = "http://www.ufriends.today";
+export const API_HOST = "http://www.ufriends.today";
 // dev
-export const API_HOST = "http://localhost:8080";
+// export const API_HOST = "http://localhost:8080";
 
 export const API_LOGIN = API_HOST + "/api/user/login";
 export const API_TOKEN_REISSUE = API_HOST + "/api/user/tokenReissue";
