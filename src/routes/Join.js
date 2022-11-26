@@ -77,7 +77,7 @@ function Join() {
     }
 
     async function emailValidApi(email) {
-        const response = emailCheckAPI(email);
+        const response = await emailCheckAPI(email);
         return response.data;
     }
 
@@ -135,7 +135,7 @@ function Join() {
     }
 
     async function nicknameValidApi(nickname) {
-        const response = nicknameCheckAPI(nickname);
+        const response = await nicknameCheckAPI(nickname);
         return response.data;
     }
 
@@ -147,7 +147,7 @@ function Join() {
     };
 
     async function phoneNumValidApi(phoneNumber){
-        const response = phoneNumCheckAPI(phoneNumber);
+        const response = await phoneNumCheckAPI(phoneNumber);
         return response.data;
     }
 
