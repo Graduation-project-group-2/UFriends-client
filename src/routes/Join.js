@@ -175,7 +175,7 @@ function Join() {
     }
 
     async function joinApi(body) {
-        const response = joinAPI(body.nickname, body.email, body.password, body.phoneNumber, body.birth);
+        const response = await joinAPI(body.nickname, body.email, body.password, body.phoneNumber, body.birth);
         return response.data;
     }
 
