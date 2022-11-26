@@ -42,7 +42,7 @@ function Login(props) {
 
     
     async function loginApi(body){
-        const response = loginAPI(body);
+        const response = await loginAPI(body);
         return response.data;
     }
 
