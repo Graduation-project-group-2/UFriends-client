@@ -15,7 +15,7 @@ const ACCESS_TOKEN = "ACCESS_TOKEN"
 
 async function emailCheckAPI(email) {
     await axios
-        .post(API_EMAIL_CHECK + "/" + email)
+        .get(API_EMAIL_CHECK + "/" + email)
         .then((data) => {
             console.log(data);
         })
@@ -26,7 +26,7 @@ async function emailCheckAPI(email) {
 
 async function nicknameCheckAPI(nickname) {
     await axios
-        .post(API_NICKNAME_CHECK + "/" + nickname)
+        .get(API_NICKNAME_CHECK + "/" + nickname)
         .then((data) => {
             console.log(data);
         })
@@ -37,7 +37,7 @@ async function nicknameCheckAPI(nickname) {
 
 async function phoneNumCheckAPI(phoneNum) {
     await axios
-        .post(API_PHONE_NUM_CHECK + "/" + phoneNum)
+        .get(API_PHONE_NUM_CHECK + "/" + phoneNum)
         .then((data) => {
             console.log(data);
         })
@@ -84,18 +84,18 @@ async function loginAPI(data) {
         });
 }
 
-async function emailValidAPI(email) {
-    await axios
-        .post(API_EMAIL_VALID, {
-            params: {email},
-        })
-        .then((data) => {
-            console.log(data);
-        })
-        .catch((error) => {
-            console.error(error);
-        });
-}
+// async function emailValidAPI(email) {
+//     await axios
+//         .get(API_EMAIL_VALID, {
+//             params: {email},
+//         })
+//         .then((data) => {
+//             console.log(data);
+//         })
+//         .catch((error) => {
+//             console.error(error);
+//         });
+// }
 
 async function changePasswordAPI(email, password) {
     await axios
@@ -131,5 +131,5 @@ export {
     emailCheckAPI,
     nicknameCheckAPI,
     phoneNumCheckAPI,
-    joinAPI, loginAPI, emailValidAPI, changePasswordAPI, deleteUserAPI
+    joinAPI, loginAPI, changePasswordAPI, deleteUserAPI
 };

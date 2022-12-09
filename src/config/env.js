@@ -6,7 +6,7 @@ export const API_HOST = "http://www.ufriends.today";
 export const API_LOGIN = API_HOST + "/api/user/login";
 export const API_TOKEN_REISSUE = API_HOST + "/api/user/tokenReissue";
 export const API_CHANGE_PASSWORD = API_HOST + "/api/user/changePassword";
-export const API_EMAIL_VALID = API_HOST + "/api/user/emailValid";
+// export const API_EMAIL_VALID = API_HOST + "/api/user/emailValid";
 
 export const API_EMAIL_CHECK = API_HOST + "/api/user/emailCheck";
 export const API_NICKNAME_CHECK = API_HOST + "/api/user/nicknameCheck";
