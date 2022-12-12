@@ -11,14 +11,14 @@ import "../styles/Start.css";
 function Start() {
     return (
         <div className="entireDiv">
-            <Header />
-            <div className="innerDiv">
+            <div>
+                <h1 id="startTopTitle">Welcome to</h1>
+                <h2 id="startbottomTitle">U-Friend</h2>
                 <img id="TitleImg" src={chatbot} alt="IMG" />
-                <h1 id="Title">U-Friend</h1>
-                <h2 id="SubTitle">유프렌즈에 오신 걸 환영합니다</h2>
+                <p id="startMent"> "심심할 때, 외로울 때, 지칠 때, <br></br> 언제나 너의 이야기를 들어줄게"</p>
                 <div className="buttonDiv">
-                    <Link to={"/Join"}><Button text={"회원가입 →"} /></Link>
-                    <Link to={"/Login"}><Button text={"로그인 →"} /></Link>
+                    <Link to={"/Join"}><Button text={"Sign up →"} /></Link>
+                    <Link to={"/Login"}><Button text={"Log in →"} /></Link>
                 </div>
                 <div className="guestDiv">
                     <Link to={"/GuestMain"}><button id="guestButton">비회원으로 이용하기</button></Link>

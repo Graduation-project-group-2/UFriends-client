@@ -2,7 +2,8 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const StyledH1 = styled.h1`
-    margin: 0;
+    margin-top: 15;
+    text-align: center;
 `;
 
 function Header() {
