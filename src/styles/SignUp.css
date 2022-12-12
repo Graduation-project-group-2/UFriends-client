@@ -1,0 +1,65 @@
+.entireDiv {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.SignUpInnerDiv {
+    position: relative;
+    top: 5%;
+}
+
+.emailFormDiv {
+    width: 360px;
+    height: 200px;
+    background-color: #EEEFF1;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 50px;
+    padding: 25px;
+    text-align: center;
+    border: none;
+}
+
+#signUpMent{
+    font-size:large;
+    font: bold;
+    text-align: center;
+}
+
+.emailField {
+    font-size: 20px;
+    padding: 10px;
+    border: none;
+    width: 260px;
+    margin-bottom: 10px;
+}
+
+.emailDiv {
+    position: relative;
+    top: 10px;
+    font-size: 20px;
+}
+
+.emailConfirmSpan {
+    font-size: 15px;
+}
+
+.emailButton {
+    position: relative;
+    top: 10px;
+    font-size: 15px;
+}
+
+#nextToPasswordButton {
+    font-size: 20px;
+    border: none;
+    padding: 10px;
+    width: 300px;
+    background-color: #BED0FE;
+    margin-top: 30px;
+    margin-bottom: 5px;
+    color: black;
+}

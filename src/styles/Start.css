@@ -6,38 +6,44 @@
     overflow-x: hidden;
 }
 
-.innerDiv {
-    position: relative;
-    top: 15%;
-}
-
-#TitleImg {
+/* #TitleImg {
     position: relative;
     display: block;
     margin: 0px auto;
-}
+} */
 
-#Title {
+#startMent{
+    font-size: xx-large;
     text-align: center;
 }
 
-#SubTitle {
+#startTopTitle {
+    font-size: 50px;
     text-align: center;
+    margin-bottom: 0;
+}
+
+#startbottomTitle {
+    font-size: 60px;
+    text-align: center;
+    color: #7AA1FA;
+    margin-top: 0;
+    margin-bottom: 2%;
 }
 
 .buttonDiv {
     text-align: center;
     position: relative;
-    top: 20px;
 }
 
 .guestDiv {
     text-align: center;
     position: relative;
-    top: 20px;
+    top: 10px;
 }
 
 #guestButton {
+    text-align: center;
     width: 250px;
     height: 50px;
     font-size: 20px;
@@ -46,7 +52,6 @@
 .socialButtonDiv {
     text-align: center;
     position: relative;
-    top: 30px;
 }
 
 #Social {

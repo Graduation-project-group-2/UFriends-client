@@ -1,8 +1,11 @@
 .miniDiv {
-    position: absolute;
-    left: 40%;
-    top: 20%;
-}
+    /* position: relative;
+    left: 33%;
+    top: 10%; */
+
+    text-align: center;
+    margin: 0;
+} 
 
 .img1 {
     display: inline-block;

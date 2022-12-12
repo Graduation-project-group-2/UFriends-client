@@ -48,10 +48,13 @@ function Login(props) {
 
     return (
         <div className="entireDiv">
-            <Header />
+            {/* <Header /> */}
             <div className="innerDiv">
-                <img id="TitleImg" src={chatbot} alt="ChatbotIMG" />
-                <p id="ment">"멘트 정하기"</p>
+            <h1 id="startTopTitle">Welcome to</h1>
+                <h2 id="startbottomTitle">U-Friend</h2>
+                <img id="TitleImg" src={chatbot} alt="IMG" />
+
+                <h3 id="ment">오늘도 나를 찾아줘서 고마워:)</h3>
                 <div className="loginFormDiv">
                     <form onSubmit={onSubmitHandler}>
                         <div>
