@@ -1,15 +1,19 @@
 import Header from "../components/Header";
 import ChatBotWord from "../components/ChatBotWord";
-import { Link } from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import ButtonGoogle from "../components/ButtonGoogle";
 import ButtonKakao from "../components/ButtonKakao";
 import ButtonNaver from "../components/ButtonNaver";
 import "../styles/SignUp.css"
 import { useState } from "react";
-import axios from "axios";
-import { API_EMAILVALID, API_NICKNAME, API_JOIN } from "../config/env";
+import {
+    emailCheckAPI,
+    nicknameCheckAPI,
+    phoneNumCheckAPI,
+    joinAPI
+} from "../api/userAPI"
 
-function SignUp() {
+function Join() {
 
     const [email, setEmail] = useState("");
     const [emailMessage, setEmailMessage] = useState("");
@@ -36,6 +40,7 @@ function SignUp() {
     let body = {
         email,
         password,
+        nickname,
         phoneNumber,
         birth
     }
@@ -46,20 +51,19 @@ function SignUp() {
         setEmail(emailCurrent);
 
         if(!emailRegex.test(emailCurrent)) {
-            setEmailMessage("이메일 형식이 틀렸어요 다시 확인해주세요ㅜㅜ");
+            setEmailMessage("이메일 형식이 올바르지 않습니다.");
             setIsEmail(false);
         }
         else {
-            setEmailMessage("올바른 이메일 형식이에요 :)");
+            setEmailMessage("올바른 이메일 형식입니다.");
             setIsEmail(true);
         }
     }
 
     const onEmailSubmitHandler = (event) => {
         event.preventDefault();
-
         emailValidApi(email)
-            .then(alert("이메일 중복 확인이 되었습니다"))
+            .then(res => res.code == 200 ? alert("이메일 중복확인이 완료되었습니다.") : alert("중복된 이메일입니다."))
             .catch(err => console.error(err));
     };
 
@@ -73,16 +77,7 @@ function SignUp() {
     }
 
     async function emailValidApi(email) {
-        const response = await axios(API_EMAILVALID, {
-            headers: {
-                'Access-Control-Allow-Origin': '*',
-            },
-            data: {
-                email: email
-            },
-            method: "get"
-        });
-
+        const response = await emailCheckAPI(email);
         return response.data;
     }
 
@@ -140,16 +135,19 @@ function SignUp() {
     }
 
     async function nicknameValidApi(nickname) {
-        const response = await axios(API_NICKNAME, {
-            headers: {
-                'Access-Control-Allow-Origin': '*',
-            },
-            data: {
-                nickname: nickname
-            },
-            method: "get"
-        });
+        const response = await nicknameCheckAPI(nickname);
+        return response.data;
+    }
 
+    const onPhoneNumSubmitHandler = (event) => {
+        event.preventDefault();
+        phoneNumValidApi(phoneNumber)
+            .then(res => res.code == 200 ? alert("전화번호 확인이 완료되었습니다.") : alert("이미 가입된 전화번호입니다."))
+            .catch(err => console.error(err));
+    };
+
+    async function phoneNumValidApi(phoneNumber){
+        const response = await phoneNumCheckAPI(phoneNumber);
         return response.data;
     }
 
@@ -172,38 +170,27 @@ function SignUp() {
         event.preventDefault();
 
         nicknameValidApi(nickname)
-            .then()
+            .then(res => res.code == 200 ? alert("사용 가능한 닉네임 입니다.") : alert("중복된 닉네임입니다."))
             .catch(err => console.error(err));
-
-        alert("닉네임 중복이 확인되었습니다.");
     }
 
     async function joinApi(body) {
-        const response = await axios(API_JOIN, {
-            headers: {
-                'Access-Control-Allow-Origin': '*',
-            },
-            data: {
-                nickname: body.nickname,
-                email: body.email,
-                password: body.password,
-                phoneNum: body.phoneNumber,
-                birthday: body.birth
-            },
-            method: "post"
-        });
-
+        const response = await joinAPI(body.nickname, body.email, body.password, body.phoneNumber, body.birth);
         return response.data;
     }
+
+    const navigate = useNavigate();
 
     const onSubmitJoinHandler = (event) => {
         event.preventDefault();
 
         joinApi(body)
-            .then()
-            .catch(err => console.error(err));
+            .then(navigate("/Login"))
+            .catch(err => {
+                console.error(err);
+                alert("가입에 실패하였습니다. 다시 시도해 주세요.");
+            });
 
-        alert("가입에 성공하였습니다!");
     }
 
     return (
@@ -291,6 +278,9 @@ function SignUp() {
                                                             </div>
                                                             <div>
                                                                 <input className="phoneField" id="PhoneNumber" placeholder="010-0000-0000" onChange={onChangePhoneNumber}></input>
+                                                                <div className="phoneNumBtn">
+                                                                    <button onClick={onPhoneNumSubmitHandler} disabled={!isPhoneNumber}>전화번호 중복 확인</button>
+                                                                </div>
                                                             </div>
                                                             <div className="birthDiv">
                                                                 <div>
@@ -330,7 +320,7 @@ function SignUp() {
                                                                     <button id="nicknameButton" onClick={onSubmitNicknameHandler} disabled={!isNickname}>닉네임 중복 확인</button>
                                                                 </div>
                                                                 <div>
-                                                                    <Link to={"/SignUpEnd"}><button id="nextToEndButton" type="submit" onClick={onSubmitJoinHandler} disabled={!isNickname}>계속하기</button></Link>
+                                                                    <Link to={"/Main"}><button id="nextToEndButton" type="submit" onClick={onSubmitJoinHandler} disabled={!isNickname}>계속하기</button></Link>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -351,4 +341,4 @@ function SignUp() {
     );
 }
 
-export default SignUp;
+export default Join;
