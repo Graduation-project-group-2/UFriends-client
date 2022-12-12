@@ -5,6 +5,9 @@ import ButtonGoogle from "../components/ButtonGoogle";
 import ButtonKakao from "../components/ButtonKakao";
 import ButtonNaver from "../components/ButtonNaver";
 import "../styles/SignUp.css"
+import "../styles/SignUpPassword.css"
+import "../styles/SignUpNickname.css"
+import "../styles/SignUpPhoneBirth.css"
 import { useState } from "react";
 import {
     emailCheckAPI,
@@ -196,7 +199,7 @@ function Join() {
     return (
         <div className="entireDiv">
             <Header />
-            <div className="innerDiv">
+            <div className="SignUpInnerDiv">
                 <ChatBotWord text={"나랑 친구할래?"} />
                 {
                     (function() {
@@ -215,7 +218,7 @@ function Join() {
                                             </div>
                                             <div className="emailButton">
                                                 <button onClick={onEmailSubmitHandler} disabled={!isEmail}>이메일 중복 확인</button>
-                                                <button id="signUpContinue" type="submit" disabled={!isEmail} >계속하기</button>
+                                                <button id="nextToPasswordButton" type="submit" disabled={!isEmail} >계속하기</button>
                                             </div>
                                         </div>
                                     </form>
@@ -225,7 +228,7 @@ function Join() {
                                         <ButtonGoogle />
                                         <ButtonKakao />
                                         <ButtonNaver />
-                                        <p>혹시 다른 계정으로 회원가입 하시겠어요?</p>
+                                        <p>소셜 계정으로 회원가입 하시겠어요?</p>
                                     </div>
                             </>
                             );
@@ -238,21 +241,19 @@ function Join() {
                                             <div className="passwordFormDiv">
                                                 <form onSubmit={onPasswordSubmitHandler}>
                                                     <div>
-                                                        <label htmlFor="Pwd">PW</label>
+                                                        <label htmlFor="Pwd"> Password  </label>
                                                         <input className="passwordField" id="Pwd" placeholder="password" type="password" onChange={onChangePassword}></input>
                                                     </div>
-
                                                     
                                                     <div>
                                                         {password.length > 0 && (<span className="passwordCheckSpan">{passwordMessage}</span>)}
                                                     </div>
                                                     <div className="rePasswordDiv">
                                                         <div>
-                                                            <label htmlFor="Pwd2">한번 더 입력해볼게요!</label>
+                                                            <label htmlFor="Pwd2">Check PW </label>
+                                                            <input className="rePasswordField" id="Pwd2" placeholder="same password" type="password" onChange={onChangePasswordConfirm} onClick={onChangePasswordConfirm} ></input>
                                                         </div>
-                                                        <div>
-                                                            <input className="rePasswordField" id="Pwd2" placeholder="한번 더 입력해주세요" type="password" onChange={onChangePasswordConfirm} onClick={onChangePasswordConfirm} ></input>
-                                                        </div>
+
                                                         <div>
                                                             {passwordConfirm.length > 0 && (<span className="passwordConfirmCheckSpan">{passwordConfirmMessage}</span>)}
                                                         </div>
@@ -271,10 +272,10 @@ function Join() {
                                             return (
                                                 <>
                                                     <div className="phoneBirthFormDiv">
-                                                        <p id="phoneBirthP">나머지 정보도 알려주세요!</p>
+                                                        {/* <p id="phoneBirthP">나머지 정보도 알려주세요!</p> */}
                                                         <form onSubmit={onPhoneAndBirthSubmitHandler}>
                                                             <div>
-                                                                <label htmlFor="PhoneNumber">전화번호</label>
+                                                                <label htmlFor="PhoneNumber">Phone number</label>
                                                             </div>
                                                             <div>
                                                                 <input className="phoneField" id="PhoneNumber" placeholder="010-0000-0000" onChange={onChangePhoneNumber}></input>
@@ -284,7 +285,7 @@ function Join() {
                                                             </div>
                                                             <div className="birthDiv">
                                                                 <div>
-                                                                    <label htmlFor="Birth">생년월일</label>
+                                                                    <label htmlFor="Birth">Birth</label>
                                                                 </div>
                                                                 <div>
                                                                     <input className="birthField" id="Birth" placeholder="YYYY.MM.DD 양/음" type="date" onChange={onChangeBirth}></input>
@@ -304,14 +305,12 @@ function Join() {
                                                     <form>
                                                         <div className="nicknameFormDiv">
                                                             <div>
-                                                                <p id="nicknameP">이제 거의 다 끝났어요</p>
+                                                                <p id="nicknameP">Almost Done!</p>
                                                             </div>
                                                             <div className="nicknameDiv">
                                                                 <div>
-                                                                    <label htmlFor="Nickname">닉네임</label>
-                                                                </div>
-                                                                <div>
-                                                                    <input className="nicknameField" id="Nickname" placeholder="닉네임 입력" onChange={onChangeNickname}></input>
+                                                                    <label htmlFor="Nickname">Nickname </label>
+                                                                    <input className="nicknameField" id="Nickname" placeholder="Nickname" onChange={onChangeNickname}></input>
                                                                 </div>
                                                                 <div>
                                                                     {nickname.length > 0 && (<span className="nicknameCheckSpan">{nicknameMessage}</span>)}

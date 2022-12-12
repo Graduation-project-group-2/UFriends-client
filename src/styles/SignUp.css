@@ -6,11 +6,10 @@
     overflow-x: hidden;
 }
 
-.innerDiv {
+.SignUpInnerDiv {
     position: relative;
     top: 5%;
 }
-
 
 .emailFormDiv {
     width: 360px;
@@ -54,7 +53,7 @@
     font-size: 15px;
 }
 
-#signUpContinue {
+#nextToPasswordButton {
     font-size: 20px;
     border: none;
     padding: 10px;

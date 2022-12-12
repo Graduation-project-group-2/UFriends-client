@@ -50,16 +50,16 @@
     width: 260px;
     margin-bottom: 10px;
     position: relative;
-    top: 10px;
+    top: 7px;
 }
 
 #nextToNicknameButton {
-    font-size: 14px;
+    font-size: 20px;
     border: none;
     padding: 10px;
     width: 300px;
-    background-color: rgba(177, 231, 222, 1);
-    margin-top: 20px;
-    margin-bottom: 10px;
+    background-color: #BED0FE;
+    margin-top: 60px;
+    margin-bottom: 5px;
     color: black;
 }
