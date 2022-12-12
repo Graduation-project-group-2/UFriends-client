@@ -27,7 +27,7 @@ function Start() {
                     <ButtonGoogle />
                     <ButtonKakao />
                     <ButtonNaver />
-                    <p id="Social">간편 소셜 로그인 방법</p>
+                    <p id="Social">간편 소셜 회원가입/로그인</p>
                 </div>
             </div>
         </div>

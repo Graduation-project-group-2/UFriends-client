@@ -197,7 +197,7 @@ function Join() {
         <div className="entireDiv">
             <Header />
             <div className="innerDiv">
-                <ChatBotWord text={"당신의 친구가 되기 위해 기다리고 있어요 :)"} />
+                <ChatBotWord text={"나랑 친구할래?"} />
                 {
                     (function() {
                         if(isEmailEnter!==true){
@@ -206,27 +206,27 @@ function Join() {
                                 
                                 <div className="emailFormDiv">
                                     <form onSubmit={onSubmitHandler}>
-                                        <div>
-                                            <label htmlFor="Email">먼저 사용하실 이메일을 입력해주세요</label>
-                                        </div>
                                         <div className="emailDiv">
-                                            <input className="emailField" id="Email" placeholder="이메일을 입력해주세요!" type="email" value={email} onChange={onChangeEmail} ></input>
+                                            <label htmlFor="ID"> ID </label>
+                                            <input className="emailField" id="Email" placeholder="Email" type="email" value={email} onChange={onChangeEmail}></input>
+            
                                             <div>
                                                 {email.length > 0 && <span className="emailConfirmSpan">{emailMessage}</span>}
                                             </div>
                                             <div className="emailButton">
                                                 <button onClick={onEmailSubmitHandler} disabled={!isEmail}>이메일 중복 확인</button>
-                                                <button id="nextToPasswordButton" type="submit" disabled={!isEmail} >계속하기</button>
+                                                <button id="signUpContinue" type="submit" disabled={!isEmail} >계속하기</button>
                                             </div>
                                         </div>
                                     </form>
-                                    <div className="socialButtonDiv"> 
+                                </div>
+
+                                <div className="socialButtonDiv"> 
                                         <ButtonGoogle />
                                         <ButtonKakao />
                                         <ButtonNaver />
                                         <p>혹시 다른 계정으로 회원가입 하시겠어요?</p>
                                     </div>
-                                </div>
                             </>
                             );
                         }
@@ -238,11 +238,11 @@ function Join() {
                                             <div className="passwordFormDiv">
                                                 <form onSubmit={onPasswordSubmitHandler}>
                                                     <div>
-                                                        <label htmlFor="Pwd">다음으로 비밀번호를 입력해볼까요?</label>
+                                                        <label htmlFor="Pwd">PW</label>
+                                                        <input className="passwordField" id="Pwd" placeholder="password" type="password" onChange={onChangePassword}></input>
                                                     </div>
-                                                    <div>
-                                                        <input className="passwordField" id="Pwd" placeholder="8자리 이상 입력해주세요!" type="password" onChange={onChangePassword}></input>
-                                                    </div>
+
+                                                    
                                                     <div>
                                                         {password.length > 0 && (<span className="passwordCheckSpan">{passwordMessage}</span>)}
                                                     </div>
