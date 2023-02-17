@@ -8,11 +8,10 @@ import "../styles/SignUp.css"
 import "../styles/SignUpPassword.css"
 import "../styles/SignUpNickname.css"
 import "../styles/SignUpPhoneBirth.css"
-import { useState } from "react";
+import {useState} from "react";
 import {
     emailCheckAPI,
     nicknameCheckAPI,
-    phoneNumCheckAPI,
     joinAPI
 } from "../api/userAPI"
 
@@ -31,11 +30,6 @@ function Join() {
     const [isPasswordConfirm, setIsPasswordConfirm] = useState(false);
     const [isPasswordEnter, setPasswordEnter] = useState(false);
 
-    const [phoneNumber, setPhoneNumber] = useState("");
-    const [isPhoneNumber, setIsPhoneNumber] = useState(false);
-    const [birth, setBirth] = useState("");
-    const [isBirth, setIsBirth] = useState(false);
-    const [isPhoneAndBirthEnter, setPhoneAndBirthEnter] = useState(false);
     const [nickname, setNickname] = useState(false);
     const [nicknameMessage, setNicknameMessage] = useState("");
     const [isNickname, setIsNickname] = useState(false);
@@ -43,9 +37,7 @@ function Join() {
     let body = {
         email,
         password,
-        nickname,
-        phoneNumber,
-        birth
+        nickname
     }
 
     const onChangeEmail = (event) => {
@@ -53,11 +45,10 @@ function Join() {
         const emailCurrent = event.target.value;
         setEmail(emailCurrent);
 
-        if(!emailRegex.test(emailCurrent)) {
+        if (!emailRegex.test(emailCurrent)) {
             setEmailMessage("이메일 형식이 올바르지 않습니다.");
             setIsEmail(false);
-        }
-        else {
+        } else {
             setEmailMessage("올바른 이메일 형식입니다.");
             setIsEmail(true);
         }
@@ -89,7 +80,7 @@ function Join() {
         const passwordCurrent = event.target.value;
         setPassword(passwordCurrent);
 
-        if(!passwordRegex.test(passwordCurrent)) {
+        if (!passwordRegex.test(passwordCurrent)) {
             setPasswordMessage("숫자+영문자 조합으로 8자리 이상 입력해주세요!");
             setIsPassword(false);
         } else {
@@ -101,7 +92,7 @@ function Join() {
     const onChangePasswordConfirm = (event) => {
         const passwordConfirmCurrent = event.target.value;
         setPasswordConfirm(passwordConfirmCurrent)
-    
+
         if (password === passwordConfirmCurrent) {
             setPasswordConfirmMessage("비밀번호를 똑같이 입력했어요 :)")
             setIsPasswordConfirm(true)
@@ -119,51 +110,21 @@ function Join() {
         setPasswordEnter(true);
     }
 
-    const onPhoneAndBirthSubmitHandler = (event) => {
-        event.preventDefault();
-
-        body.phoneNumber = phoneNumber;
-        body.birth = birth;
-        setPhoneAndBirthEnter(true);
-    }
-
-    const onChangePhoneNumber = (event) => {
-        setPhoneNumber(event.target.value);
-        setIsPhoneNumber(true);
-    }
-
-    const onChangeBirth = (event) => {
-        setBirth(event.target.value);
-        setIsBirth(true);
-    }
-
     async function nicknameValidApi(nickname) {
         const response = await nicknameCheckAPI(nickname);
         return response.data;
     }
 
-    const onPhoneNumSubmitHandler = (event) => {
-        event.preventDefault();
-        phoneNumValidApi(phoneNumber)
-            .then(res => res.code == 200 ? alert("전화번호 확인이 완료되었습니다.") : alert("이미 가입된 전화번호입니다."))
-            .catch(err => console.error(err));
-    };
-
-    async function phoneNumValidApi(phoneNumber){
-        const response = await phoneNumCheckAPI(phoneNumber);
-        return response.data;
-    }
 
     const onChangeNickname = (event) => {
         const nicknameRegex = /^(?=.*[a-z0-9가-힣])[a-z0-9가-힣]{2,10}$/;
         const nicknameCurrent = event.target.value;
         setNickname(nicknameCurrent);
 
-        if(!nicknameRegex.test(nicknameCurrent)) {
+        if (!nicknameRegex.test(nicknameCurrent)) {
             setNicknameMessage("한글 및 영어로 2자 이상 10자 이하로 입력해주세요!");
             setIsNickname(false);
-        }
-        else {
+        } else {
             setNicknameMessage("제대로 된 닉네임을 입력했어요 :)");
             setIsNickname(true);
         }
@@ -178,7 +139,7 @@ function Join() {
     }
 
     async function joinApi(body) {
-        const response = await joinAPI(body.nickname, body.email, body.password, body.phoneNumber, body.birth);
+        const response = await joinAPI(body.nickname, body.email, body.password);
         return response.data;
     }
 
@@ -198,144 +159,131 @@ function Join() {
 
     return (
         <div className="entireDiv">
-            <Header />
+            <Header/>
             <div className="SignUpInnerDiv">
-                <ChatBotWord text={"나랑 친구할래?"} />
+                <ChatBotWord text={"나랑 친구할래?"}/>
                 {
-                    (function() {
-                        if(isEmailEnter!==true){
+                    (function () {
+                        if (isEmailEnter !== true) {
                             return (
-                            <>
-                                
-                                <div className="emailFormDiv">
-                                    <form onSubmit={onSubmitHandler}>
-                                        <div className="emailDiv">
-                                            <label htmlFor="ID"> ID </label>
-                                            <input className="emailField" id="Email" placeholder="Email" type="email" value={email} onChange={onChangeEmail}></input>
-            
-                                            <div>
-                                                {email.length > 0 && <span className="emailConfirmSpan">{emailMessage}</span>}
+                                <>
+                                    <div className="emailFormDiv">
+                                        <form onSubmit={onSubmitHandler}>
+                                            <div className="emailDiv">
+                                                <label htmlFor="ID"> ID </label>
+                                                <input className="emailField" id="Email" placeholder="Email"
+                                                       type="email" value={email} onChange={onChangeEmail}></input>
+                                                <div>
+                                                    {email.length > 0 &&
+                                                        <span className="emailConfirmSpan">{emailMessage}</span>}
+                                                </div>
+                                                <div className="emailButton">
+                                                    <button onClick={onEmailSubmitHandler} disabled={!isEmail}>이메일 중복
+                                                        확인
+                                                    </button>
+                                                    <button id="nextToPasswordButton" type="submit"
+                                                            disabled={!isEmail}>계속하기
+                                                    </button>
+                                                </div>
                                             </div>
-                                            <div className="emailButton">
-                                                <button onClick={onEmailSubmitHandler} disabled={!isEmail}>이메일 중복 확인</button>
-                                                <button id="nextToPasswordButton" type="submit" disabled={!isEmail} >계속하기</button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
+                                        </form>
+                                    </div>
 
-                                <div className="socialButtonDiv"> 
-                                        <ButtonGoogle />
-                                        <ButtonKakao />
-                                        <ButtonNaver />
+                                    <div className="socialButtonDiv">
+                                        <ButtonGoogle/>
+                                        <ButtonKakao/>
+                                        <ButtonNaver/>
                                         <p>소셜 계정으로 회원가입 하시겠어요?</p>
                                     </div>
-                            </>
+                                </>
                             );
-                        }
-                        else if(isEmailEnter===true){
-                            return (function() {
-                                if(isPasswordEnter!==true){
+                        } else if (isEmailEnter === true) {
+                            return (function () {
+                                if (isPasswordEnter !== true) {
                                     return (
                                         <>
                                             <div className="passwordFormDiv">
                                                 <form onSubmit={onPasswordSubmitHandler}>
                                                     <div>
-                                                        <label htmlFor="Pwd"> Password  </label>
-                                                        <input className="passwordField" id="Pwd" placeholder="password" type="password" onChange={onChangePassword}></input>
+                                                        <label htmlFor="Pwd"> Password </label>
+                                                        <input className="passwordField" id="Pwd" placeholder="password"
+                                                               type="password" onChange={onChangePassword}></input>
                                                     </div>
-                                                    
+
                                                     <div>
-                                                        {password.length > 0 && (<span className="passwordCheckSpan">{passwordMessage}</span>)}
+                                                        {password.length > 0 && (<span
+                                                            className="passwordCheckSpan">{passwordMessage}</span>)}
                                                     </div>
                                                     <div className="rePasswordDiv">
                                                         <div>
                                                             <label htmlFor="Pwd2">Check PW </label>
-                                                            <input className="rePasswordField" id="Pwd2" placeholder="same password" type="password" onChange={onChangePasswordConfirm} onClick={onChangePasswordConfirm} ></input>
+                                                            <input className="rePasswordField" id="Pwd2"
+                                                                   placeholder="same password" type="password"
+                                                                   onChange={onChangePasswordConfirm}
+                                                                   onClick={onChangePasswordConfirm}></input>
                                                         </div>
 
                                                         <div>
-                                                            {passwordConfirm.length > 0 && (<span className="passwordConfirmCheckSpan">{passwordConfirmMessage}</span>)}
+                                                            {passwordConfirm.length > 0 && (<span
+                                                                className="passwordConfirmCheckSpan">{passwordConfirmMessage}</span>)}
                                                         </div>
                                                     </div>
                                                     <div>
-                                                        <button id="nextToPhoneBirthButton" type="submit" disabled={!isPassword || !isPasswordConfirm}>계속하기</button>
+                                                        <button id="nextToPhoneBirthButton" type="submit"
+                                                                disabled={!isPassword || !isPasswordConfirm}>계속하기
+                                                        </button>
                                                     </div>
                                                 </form>
-                                            </div>                
+                                            </div>
                                         </>
                                     );
-                                }
-                                else if(isPasswordEnter===true){
-                                    return (function() {
-                                        if(isPhoneAndBirthEnter!==true){
-                                            return (
-                                                <>
-                                                    <div className="phoneBirthFormDiv">
-                                                        {/* <p id="phoneBirthP">나머지 정보도 알려주세요!</p> */}
-                                                        <form onSubmit={onPhoneAndBirthSubmitHandler}>
+                                } else if (isPasswordEnter === true) {
+                                    return (function () {
+                                        return (
+                                            <>
+                                                <form>
+                                                    <div className="nicknameFormDiv">
+                                                        <div>
+                                                            <p id="nicknameP">Almost Done!</p>
+                                                        </div>
+                                                        <div className="nicknameDiv">
                                                             <div>
-                                                                <label htmlFor="PhoneNumber">Phone number</label>
-                                                            </div>
-                                                            <div>
-                                                                <input className="phoneField" id="PhoneNumber" placeholder="010-0000-0000" onChange={onChangePhoneNumber}></input>
-                                                                <div className="phoneNumBtn">
-                                                                    <button onClick={onPhoneNumSubmitHandler} disabled={!isPhoneNumber}>전화번호 중복 확인</button>
-                                                                </div>
-                                                            </div>
-                                                            <div className="birthDiv">
-                                                                <div>
-                                                                    <label htmlFor="Birth">Birth</label>
-                                                                </div>
-                                                                <div>
-                                                                    <input className="birthField" id="Birth" placeholder="YYYY.MM.DD 양/음" type="date" onChange={onChangeBirth}></input>
-                                                                </div>
+                                                                <label htmlFor="Nickname">Nickname </label>
+                                                                <input className="nicknameField" id="Nickname"
+                                                                       placeholder="Nickname"
+                                                                       onChange={onChangeNickname}></input>
                                                             </div>
                                                             <div>
-                                                                <button id="nextToNicknameButton" type="submit" disabled={!isPhoneNumber || !isBirth}>계속하기</button>
+                                                                {nickname.length > 0 && (<span
+                                                                    className="nicknameCheckSpan">{nicknameMessage}</span>)}
                                                             </div>
-                                                        </form>
-                                                    </div>
-                                                </>
-                                            );
-                                        }
-                                        else if(isPhoneAndBirthEnter===true){
-                                            return (
-                                                <>
-                                                    <form>
-                                                        <div className="nicknameFormDiv">
                                                             <div>
-                                                                <p id="nicknameP">Almost Done!</p>
+                                                                <button id="nicknameButton"
+                                                                        onClick={onSubmitNicknameHandler}
+                                                                        disabled={!isNickname}>닉네임 중복 확인
+                                                                </button>
                                                             </div>
-                                                            <div className="nicknameDiv">
-                                                                <div>
-                                                                    <label htmlFor="Nickname">Nickname </label>
-                                                                    <input className="nicknameField" id="Nickname" placeholder="Nickname" onChange={onChangeNickname}></input>
-                                                                </div>
-                                                                <div>
-                                                                    {nickname.length > 0 && (<span className="nicknameCheckSpan">{nicknameMessage}</span>)}
-                                                                </div>
-                                                                <div>
-                                                                    <button id="nicknameButton" onClick={onSubmitNicknameHandler} disabled={!isNickname}>닉네임 중복 확인</button>
-                                                                </div>
-                                                                <div>
-                                                                    <Link to={"/Main"}><button id="nextToEndButton" type="submit" onClick={onSubmitJoinHandler} disabled={!isNickname}>계속하기</button></Link>
-                                                                </div>
+                                                            <div>
+                                                                <Link to={"/Main"}>
+                                                                    <button id="nextToEndButton" type="submit"
+                                                                            onClick={onSubmitJoinHandler}
+                                                                            disabled={!isNickname}>계속하기
+                                                                    </button>
+                                                                </Link>
                                                             </div>
                                                         </div>
-                                                    </form>
-                                                            
-                                                </>
-                                            );
-                                        }
+                                                    </div>
+                                                </form>
+
+                                            </>
+                                        );
                                     })()
                                 }
                             })()
                         }
                     })()
                 }
-                        
-                </div>
+            </div>
         </div>
     );
 }

@@ -21,13 +21,7 @@ function Start() {
                     <Link to={"/Login"}><Button text={"Log in →"} /></Link>
                 </div>
                 <div className="guestDiv">
-                    <Link to={"/GuestMain"}><button id="guestButton">비회원으로 이용하기</button></Link>
-                </div>
-                <div className="socialButtonDiv">
-                    <ButtonGoogle />
-                    <ButtonKakao />
-                    <ButtonNaver />
-                    <p id="Social">간편 소셜 회원가입/로그인</p>
+                    <Link to={"/GuestMain"}><button id="guestButton">비회원으로 둘러보기</button></Link>
                 </div>
             </div>
         </div>

@@ -19,13 +19,13 @@ function Main() {
             </div>
             <div className="buttonsDiv">
                 <div className="buttonDiv">
-                    <Link to={"/Chatbot"}><button className="button">챗봇</button></Link>
+                    <Link to={"/Chatbot"}><button className="button">U-Friends와<br/>대화해보기</button></Link>
                 </div>
                 <div className="buttonDiv">
                     <Link to={"/MiniGame"}><button className="button">미니게임</button></Link>
                 </div>
                 <div className="buttonDiv">
-                    <Link to={"/"}><button className="button">시작화면</button></Link>
+                    <Link to={"/"}><button className="button">로그인하기</button></Link>
                 </div>
             </div>
         </div>

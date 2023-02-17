@@ -3,7 +3,6 @@ import {
     API_HOST,
     API_EMAIL_CHECK,
     API_NICKNAME_CHECK,
-    API_PHONE_NUM_CHECK,
     API_JOIN,
     API_LOGIN,
     API_EMAIL_VALID,
@@ -27,17 +26,6 @@ async function emailCheckAPI(email) {
 async function nicknameCheckAPI(nickname) {
     await axios
         .get(API_NICKNAME_CHECK + "/" + nickname)
-        .then((data) => {
-            console.log(data);
-        })
-        .catch((error) => {
-            console.error(error);
-        });
-}
-
-async function phoneNumCheckAPI(phoneNum) {
-    await axios
-        .get(API_PHONE_NUM_CHECK + "/" + phoneNum)
         .then((data) => {
             console.log(data);
         })
@@ -84,19 +72,6 @@ async function loginAPI(data) {
         });
 }
 
-// async function emailValidAPI(email) {
-//     await axios
-//         .get(API_EMAIL_VALID, {
-//             params: {email},
-//         })
-//         .then((data) => {
-//             console.log(data);
-//         })
-//         .catch((error) => {
-//             console.error(error);
-//         });
-// }
-
 async function changePasswordAPI(email, password) {
     await axios
         .put(API_CHANGE_PASSWORD, {
@@ -130,6 +105,5 @@ export function logout(){
 export {
     emailCheckAPI,
     nicknameCheckAPI,
-    phoneNumCheckAPI,
     joinAPI, loginAPI, changePasswordAPI, deleteUserAPI
 };
