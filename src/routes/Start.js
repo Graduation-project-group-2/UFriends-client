@@ -11,7 +11,7 @@ import "../styles/Start.css";
 function Start() {
     return (
         <div className="entireDiv">
-            <div>
+            <div className="androidDiv">
                 <h1 id="startTopTitle">Welcome to</h1>
                 <h2 id="startbottomTitle">U-Friend</h2>
                 <img id="TitleImg" src={chatbot} alt="IMG" />
