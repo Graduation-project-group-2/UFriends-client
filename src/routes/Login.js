@@ -49,7 +49,7 @@ function Login(props) {
     return (
         <div className="entireDiv">
             {/* <Header /> */}
-            <div className="innerDiv">
+            <div className="androidDiv">
             <h1 id="startTopTitle">Welcome to</h1>
                 <h2 id="startbottomTitle">U-Friend</h2>
                 <img id="TitleImg" src={chatbot} alt="IMG" />
@@ -58,11 +58,11 @@ function Login(props) {
                 <div className="loginFormDiv">
                     <form onSubmit={onSubmitHandler}>
                         <div>
-                            <label htmlFor="ID">아이디 </label>
+                            <label htmlFor="ID"> ID </label>
                             <input className="idField" id="ID" placeholder="아이디" type="email" value={email} onChange={onEmailHandler} />
                         </div>
                         <div>
-                            <label className="pwdLabel" htmlFor="PWD">비밀번호 </label>
+                            <label htmlFor="PWD"> PW </label>
                             <input className="pwdField" id="PWD" placeholder="비밀번호" type="password" value={password} onChange={onPasswordHandler} />
                         </div>
                         <button className="submitButton" type="submit" onClick={onSubmitHandler} >로그인하기</button>
