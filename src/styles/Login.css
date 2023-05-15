@@ -4,11 +4,16 @@
     height: 100%;
     overflow-y: auto;
     overflow-x: hidden;
+    background-color: rgb(235, 235, 235);
 }
 
-.innerDiv {
-    position: relative;
-    /* top: 15%; */
+.androidDiv{
+    position: fixed;
+    width: 50%;
+    height: 100%;
+    margin-left: 25%;
+    margin-right: 25%;
+    background-color: white;
 }
 
 #TitleImg {
@@ -25,7 +30,6 @@
 
 .loginFormDiv {
     width: 360px;
-    background-color: #EEEFF1;
     margin-right: auto;
     margin-left: auto;
     margin-top: 50px;
@@ -37,11 +41,14 @@
 }
 
 .idField {
-    font-size: 14px;
+    font-size: 20px;
     padding: 10px;
     border: none;
-    width: 260px;
+    width: 240px;
+    margin-left: 20px;
     margin-bottom: 10px;
+    position: relative;
+    background-color: rgb(228, 228, 228);
 }
 
 .pwdLabel {
@@ -50,17 +57,18 @@
 }
 
 .pwdField {
-    position: relative;
-    left: -8px;
-    font-size: 14px;
+    font-size: 20px;
     padding: 10px;
     border: none;
-    width: 260px;
+    width: 240px;
+    margin-left: 10px;
     margin-bottom: 10px;
+    position: relative;
+    background-color: rgb(228, 228, 228);
 }
 
 .submitButton{
-    font-size: 14px;
+    font-size: 18px;
     border: none;
     padding: 10px;
     width: 300px;
