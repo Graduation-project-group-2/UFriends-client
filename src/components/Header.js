@@ -7,7 +7,7 @@ const StyledH1 = styled.h1`
 `;
 
 const StyledHr = styled.hr`
-    margin: 0;
+    margin-bottom: 30px;
 `;
 
 function Header() {
