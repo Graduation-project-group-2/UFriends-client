@@ -159,8 +159,8 @@ function Join() {
 
     return (
         <div className="entireDiv">
-            <Header/>
             <div className="SignUpInnerDiv">
+                <Header/>        
                 <ChatBotWord text={"나랑 친구할래?"}/>
                 {
                     (function () {
@@ -190,10 +190,11 @@ function Join() {
                                     </div>
 
                                     <div className="socialButtonDiv">
+                                        <p>소셜 계정으로 회원가입 하시겠어요?</p>
                                         <ButtonGoogle/>
                                         <ButtonKakao/>
                                         <ButtonNaver/>
-                                        <p>소셜 계정으로 회원가입 하시겠어요?</p>
+                                        
                                     </div>
                                 </>
                             );
@@ -205,7 +206,7 @@ function Join() {
                                             <div className="passwordFormDiv">
                                                 <form onSubmit={onPasswordSubmitHandler}>
                                                     <div>
-                                                        <label htmlFor="Pwd"> Password </label>
+                                                        <label htmlFor="Pwd"> PW </label>
                                                         <input className="passwordField" id="Pwd" placeholder="password"
                                                                type="password" onChange={onChangePassword}></input>
                                                     </div>
@@ -216,7 +217,7 @@ function Join() {
                                                     </div>
                                                     <div className="rePasswordDiv">
                                                         <div>
-                                                            <label htmlFor="Pwd2">Check PW </label>
+                                                            <label htmlFor="Pwd2"> rePW </label>
                                                             <input className="rePasswordField" id="Pwd2"
                                                                    placeholder="same password" type="password"
                                                                    onChange={onChangePasswordConfirm}
@@ -243,12 +244,9 @@ function Join() {
                                             <>
                                                 <form>
                                                     <div className="nicknameFormDiv">
-                                                        <div>
-                                                            <p id="nicknameP">Almost Done!</p>
-                                                        </div>
                                                         <div className="nicknameDiv">
                                                             <div>
-                                                                <label htmlFor="Nickname">Nickname </label>
+                                                                <label htmlFor="Nickname"> User </label>
                                                                 <input className="nicknameField" id="Nickname"
                                                                        placeholder="Nickname"
                                                                        onChange={onChangeNickname}></input>

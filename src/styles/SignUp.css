@@ -6,15 +6,24 @@
     overflow-x: hidden;
 }
 
-.SignUpInnerDiv {
+/* .SignUpInnerDiv {
+    background-color: aqua;
     position: relative;
     top: 5%;
-}
+} */
 
+.SignUpInnerDiv{
+    position: fixed;
+    width: 50%;
+    height: 100%;
+    margin-left: 25%;
+    margin-right: 25%;
+    background-color: white;
+}
 .emailFormDiv {
     width: 360px;
     height: 200px;
-    background-color: #EEEFF1;
+    /* background-color: #EEEFF1; */
     margin-right: auto;
     margin-left: auto;
     margin-top: 50px;
@@ -34,7 +43,9 @@
     padding: 10px;
     border: none;
     width: 260px;
+    margin-left: 20px;
     margin-bottom: 10px;
+    background-color: rgb(228, 228, 228);
 }
 
 .emailDiv {
@@ -60,6 +71,10 @@
     width: 300px;
     background-color: #BED0FE;
     margin-top: 30px;
-    margin-bottom: 5px;
+    margin-bottom: 30px;
     color: black;
+}
+
+.socialButtonDiv{
+    margin-top: 70px;
 }

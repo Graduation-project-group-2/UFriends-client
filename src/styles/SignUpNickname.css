@@ -13,7 +13,6 @@
 
 .nicknameFormDiv {
     width: 360px;
-    background-color: #EEEFF1;
     margin-right: auto;
     margin-left: auto;
     margin-top: 50px;
@@ -34,12 +33,14 @@
 }
 
 .nicknameField {
-    font-size: 14px;
+    font-size: 20px;
     padding: 10px;
     border: none;
-    width: 230px;
+    width: 240px;
+    margin-left: 20px;
     margin-bottom: 10px;
     position: relative;
+    background-color: rgb(228, 228, 228);
 }
 
 .nicknameCheckSpan {
