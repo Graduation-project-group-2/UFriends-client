@@ -66,6 +66,7 @@ async function loginAPI(data) {
         }, headers)
         .then((res) => {
             localStorage.setItem(ACCESS_TOKEN, res.data.data.token);
+            return res;
         })
         .catch((error) => {
             console.error(error);

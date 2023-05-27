@@ -6,8 +6,12 @@ import axios from "axios";
 import "../styles/Login.css";
 import { loginAPI, emailValidAPI, changePasswordAPI } from "../api/userAPI";
 import { useNavigate } from "react-router-dom";
+import {API_LOGIN} from "../config/env";
 
 function Login(props) {
+
+    const ACCESS_TOKEN = "ACCESS_TOKEN";
+    const USER_ID = "USER_ID";
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -42,8 +46,20 @@ function Login(props) {
 
     
     async function loginApi(body){
-        const response = await loginAPI(body);
-        return response.data;
+        await axios
+            .post(API_LOGIN, {
+                email: body.email,
+                password: body.password,
+            })
+            .then((res) => {
+                localStorage.setItem(ACCESS_TOKEN, res.data.data.token);
+                localStorage.setItem(USER_ID, res.data.data.userId);
+                console.log(res);
+                console.log(res.data);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
     }
 
     return (
